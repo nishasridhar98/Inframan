@@ -1,0 +1,30 @@
+{% extends 'owner_base.html'%}
+{% block nav %}
+	{%load static%}
+	<div >
+		
+		<!--<div class="card shadow-lg bg-info" style="margin-top: 25px;width: 40rem; margin-left: 25px;">
+				
+				
+			<div class="card-body">-->
+				<div style="margin-top: 25px; margin-left: 25px;">
+					<h2 >Property Details</h2>
+					
+						
+							{% for prop in myproperty%}
+								<div class="card shadow-lg border-dark bg-light" style="width: 15rem; display: inline-block; margin-top:20px; margin-left:25px">
+									
+									<div class="card-body">
+										
+										<h2 class="card-text">{{ prop.name }}</h2>
+										
+										<p class="card-text"> {{prop.address}}</p>
+										
+									</div>
+								</div>
+							{% endfor %}
+							
+						</div>
+					</div>
+				</div>
+			{% endblock %}

@@ -1,0 +1,47 @@
+{% extends 'owner_base.html'%}
+{% block nav %}
+	{%load static%}
+	
+	<form method="POST" class="post-form" action="/owner_site/add_tenant/">
+		{% csrf_token %}
+		<div class="container-fluid" style="margin-top: 80px; margin-bottom: 30px;">
+			<div class="row">
+				<div class="col-md-4">
+				</div>
+				<div class="col-md-4">
+					<div class="card shadow-lg border-dark">
+						<div class="card-body card-style">
+
+							<div class="form-group">
+										<label for="exampleFormControlInput1">Enter Tenant Email</label>
+										<input type="email" name="email" placeholder="Email" class="form-control" required="true">
+										<small id="emailHelp" class="form-text text-muted">Make sure the user already exists , else invite by email</small>
+									</div>
+
+							<div class="form-group">
+										<label for="exampleFormControlInput2">Enter Property</label>
+							<br>
+						
+							<select name="property_id">
+								{%for prop in property %}
+								<option value="{{prop.pk}}">{{prop.name}}</option>
+								{%endfor%}
+								
+							</select>
+							</div>
+
+
+							<div class="form-group">
+										<label for="exampleFormControlInput3">Enter The Rent Paid Date</label>
+
+							<input type="date" name="rent" class="form-control" required="true">
+						</div>
+							<br>
+							<input type="submit" value="Add Tenant" class="btn btn-success">
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</form>
+	{%endblock%}

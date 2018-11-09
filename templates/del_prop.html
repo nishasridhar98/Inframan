@@ -1,0 +1,34 @@
+{% extends 'owner_base.html'%}
+{% block nav %}
+	{%load static%}
+	
+	<div class="container-fluid" style="margin-top: 100px;">
+		<div class="row">
+			<div class="col-md-4"> </div>
+			<div class="col-md-4">
+				<div class="card shadow-lg border-dark bg-light">
+					<div class="card-body ">
+						<form action="/owner_site/del_property/" method="POST">
+							{% csrf_token %}
+							<div class="form-group">
+								<br>
+								<label for="exampleFormControlInput1">Enter Property Name</label>
+								<select name="property_id">
+									{%for prop in property %}
+									<option value="{{prop.pk}}">{{prop.name}}</option>
+									{%endfor%}
+									
+								</select>
+								
+							</div>
+							
+							<div class="form-group  ">
+								<input type="submit" class="btn btn-success" value="Submit">
+							</div>
+						</form>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+{%endblock%}
